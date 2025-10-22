@@ -1,4 +1,4 @@
-# 🚀 TrainForge - Framework Huấn Luyện AI Dễ Dàng
+# 🚀 TrainForge - Easy AI Training Framework
 
 <div align="center">
 
@@ -7,51 +7,51 @@
 ![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)
 ![Python](https://img.shields.io/badge/python-3.8%2B-blue?style=for-the-badge&logo=python)
 
-**Framework chuyên nghiệp để huấn luyện mô hình AI (LLM & VLM) một cách dễ dàng**
+**A professional framework for easily training AI models (LLM & VLM)**
 
-[Tính năng](#-tính-năng) • [Bắt đầu nhanh](#-bắt-đầu-nhanh) • [Cài đặt](#-cài-đặt) • [Sử dụng](#-sử-dụng) • [Ví dụ](#-ví-dụ) • [Cấu hình](#-cấu-hình)
+[Features](#-features) • [Quick Start](#-quick-start) • [Installation](#-installation) • [Usage](#-usage) • [Examples](#-examples) • [Configuration](#-configuration)
 
 </div>
 
 ---
 
-## 🎯 TrainForge là gì?
+## 🎯 What is TrainForge?
 
-TrainForge là một framework Python giúp bạn huấn luyện các mô hình AI một cách đơn giản và hiệu quả. Bạn chỉ cần:
+TrainForge is a Python framework that helps you train AI models simply and efficiently. You just need to:
 
-1. **Tạo file cấu hình YAML** - Không cần code phức tạp
-2. **Chạy 3 dòng lệnh** - Framework tự động xử lý mọi thứ
-3. **Theo dõi kết quả** - Tích hợp sẵn Weights & Biases
+1. **Create a YAML configuration file** - No complex code needed
+2. **Run 3 lines of code** - The framework automatically handles everything
+3. **Monitor results** - Integrated with Weights & Biases
 
-**Phù hợp cho:** Sinh viên, nhà nghiên cứu, kỹ sư AI muốn huấn luyện mô hình nhanh chóng.
+**Suitable for:** Students, researchers, AI engineers who want to train models quickly.
 
 ---
 
-## ✨ Tính năng
+## ✨ Features
 
-| 🎯 **Đa nền tảng** | Hỗ trợ cả **Unsloth** (nhanh) và **HuggingFace** (ổn định) |
+| 🎯 **Cross-platform** | Supports both **Unsloth** (fast) and **HuggingFace** (stable) |
 |---|---|
-| 🤖 **Đa mô hình** | Huấn luyện cả **LLM** (mô hình ngôn ngữ) và **VLM** (mô hình thị giác-ngôn ngữ) |
-| ⚡ **Tối ưu hóa** | Tự động tối ưu bộ nhớ và tốc độ huấn luyện |
-| 🔧 **Cấu hình đơn giản** | Chỉ cần file YAML, không cần code phức tạp |
-| 🚀 **Đa GPU** | Tự động phân phối huấn luyện trên nhiều GPU |
-| 📊 **Theo dõi thí nghiệm** | Tích hợp sẵn Weights & Biases |
+| 🤖 **Multi-model** | Trains both **LLM** (language models) and **VLM** (vision-language models) |
+| ⚡ **Optimization** | Automatic memory and training speed optimization |
+| 🔧 **Simple configuration** | Just a YAML file, no complex code needed |
+| 🚀 **Multi-GPU** | Automatically distributes training across multiple GPUs |
+| 📊 **Experiment tracking** | Integrated with Weights & Biases |
 
 ---
 
-## 🚀 Bắt đầu nhanh
+## 🚀 Quick Start
 
-### Bước 1: Cài đặt
+### Step 1: Installation
 ```bash
-# Kích hoạt môi trường conda (nếu dùng unsloth)
+# Activate conda environment (if using unsloth)
 conda activate unsloth
 
-# Cài đặt dependencies
+# Install dependencies
 pip install -r requirements.txt
 ```
 
-### Bước 2: Tạo file cấu hình
-Tạo file `my_config.yaml`:
+### Step 2: Create a configuration file
+Create `my_config.yaml`:
 
 ```yaml
 model:
@@ -71,18 +71,18 @@ dataset:
   text_field: "text"
 ```
 
-### Bước 3: Chạy huấn luyện
+### Step 3: Run training
 ```python
 from forge import UnslothLLMTrainer
 
-# Khởi tạo trainer
+# Initialize trainer
 trainer = UnslothLLMTrainer(config="my_config.yaml")
 
-# Bắt đầu huấn luyện
+# Start training
 trainer.train()
 ```
 
-**Hoặc chạy trực tiếp:**
+**Or run directly:**
 ```bash
 conda activate unsloth
 PYTHONPATH=$PYTHONPATH:./src python examples/unsloth/llm/example_sft.py
@@ -90,109 +90,109 @@ PYTHONPATH=$PYTHONPATH:./src python examples/unsloth/llm/example_sft.py
 
 ---
 
-## 📦 Cài đặt
+## 📦 Installation
 
-### Yêu cầu hệ thống
+### System requirements
 - Python 3.8+
-- GPU NVIDIA (khuyến nghị)
-- CUDA 11.8+ hoặc 12.0+
+- NVIDIA GPU (recommended)
+- CUDA 11.8+ or 12.0+
 
-### Cài đặt từ source
+### Install from source
 ```bash
 # Clone repository
 git clone https://github.com/yourusername/TrainForge.git
 cd TrainForge
 
-# Cài đặt dependencies
+# Install dependencies
 pip install -r requirements.txt
 
-# Kiểm tra cài đặt
-python -c "from src.forge import UnslothLLMTrainer; print('✅ Cài đặt thành công!')"
+# Check installation
+python -c "from src.forge import UnslothLLMTrainer; print('✅ Installation successful!')"
 ```
 
-### Cài đặt môi trường Unsloth (khuyến nghị)
+### Install Unsloth environment (recommended)
 ```bash
-# Tạo môi trường conda mới
+# Create a new conda environment
 conda create --name unsloth python=3.11 -y
 conda activate unsloth
 
-# Cài đặt unsloth
+# Install unsloth
 pip install "unsloth[colab-new] @ git+https://github.com/unslothai/unsloth.git"
 pip install --no-deps "trl<0.9.0" peft accelerate bitsandbytes
 ```
 
 ---
 
-## 💻 Sử dụng
+## 💻 Usage
 
-### 1. Huấn luyện LLM (Mô hình ngôn ngữ)
+### 1. Train LLM (Language Model)
 
 ```python
 from forge import UnslothLLMTrainer
 
-# Sử dụng file cấu hình có sẵn
+# Use existing configuration file
 trainer = UnslothLLMTrainer(config="config/unsloth/llm/sft.yaml")
 results = trainer.train()
 
-print(f"Huấn luyện hoàn thành! Kết quả: {results}")
+print(f"Training completed! Results: {results}")
 ```
 
-### 2. Huấn luyện VLM (Mô hình thị giác-ngôn ngữ)
+### 2. Train VLM (Vision-Language Model)
 
 ```python
 from forge import UnslothVLMTrainer
 
-# Huấn luyện mô hình có thể "nhìn" và "nói"
+# Train a model that can "see" and "speak"
 trainer = UnslothVLMTrainer(config="config/unsloth/vlm/sft.yaml")
 results = trainer.train()
 ```
 
-### 3. Huấn luyện đa GPU
+### 3. Multi-GPU training
 
 ```bash
-# Sử dụng 2 GPU
+# Use 2 GPUs
 CUDA_VISIBLE_DEVICES="0,1" accelerate launch --multi-gpu --num_processes 2 train.py
 ```
 
 ---
 
-## 📚 Ví dụ
+## 📚 Examples
 
-### Ví dụ 1: Huấn luyện chatbot y tế
+### Example 1: Train a medical chatbot
 ```python
 """
-Huấn luyện mô hình trả lời câu hỏi y tế
+Train a model to answer medical questions
 """
 from forge import UnslothLLMTrainer
 
 def main():
-    print("🏥 Đang huấn luyện chatbot y tế...")
+    print("🏥 Training medical chatbot...")
     
-    # Sử dụng dataset y tế có sẵn
+    # Use existing medical dataset
     trainer = UnslothLLMTrainer(config="config/unsloth/llm/sft.yaml")
     results = trainer.train()
     
-    print("✅ Huấn luyện hoàn thành!")
-    print(f"📊 Kết quả: {results}")
+    print("✅ Training completed!")
+    print(f"📊 Results: {results}")
 
 if __name__ == "__main__":
     main()
 ```
 
-### Ví dụ 2: Huấn luyện mô hình hiểu ảnh
+### Example 2: Train an image understanding model
 ```python
 """
-Huấn luyện mô hình có thể mô tả ảnh
+Train a model that can describe images
 """
 from forge import UnslothVLMTrainer
 
 def main():
-    print("👁️ Đang huấn luyện mô hình thị giác...")
+    print("👁️ Training vision model...")
     
     trainer = UnslothVLMTrainer(config="config/unsloth/vlm/sft.yaml")
     results = trainer.train()
     
-    print("✅ Mô hình đã học cách 'nhìn' ảnh!")
+    print("✅ Model has learned to 'see' images!")
 
 if __name__ == "__main__":
     main()
@@ -200,179 +200,63 @@ if __name__ == "__main__":
 
 ---
 
-## ⚙️ Cấu hình
+## ⚙️ Configuration
 
-### Cấu trúc file cấu hình
+### Configuration file structure
 
-Mỗi file YAML có 5 phần chính:
+Each YAML file has 5 main sections:
 
 ```yaml
-# 1. Cấu hình mô hình
+# 1. Model configuration
 model:
-  model_name_or_path: "unsloth/Llama-3.2-3B-Instruct"  # Tên mô hình
-  max_seq_length: 4096                                   # Độ dài tối đa
-  load_in_4bit: true                                     # Tiết kiệm bộ nhớ
+  model_name_or_path: "unsloth/Llama-3.2-3B-Instruct"  # Model name
+  max_seq_length: 4096                                   # Max length
+  load_in_4bit: true                                     # Memory saving
 
-# 2. Tham số huấn luyện
+# 2. Training parameters
 hyperparams:
-  per_device_train_batch_size: 1    # Kích thước batch
-  learning_rate: 0.0001             # Tốc độ học
-  num_train_epochs: 3               # Số epoch
-  output_dir: "my_output"           # Thư mục lưu kết quả
+  per_device_train_batch_size: 1    # Batch size
+  learning_rate: 0.0001             # Learning rate
+  num_train_epochs: 3               # Number of epochs
+  output_dir: "my_output"           # Output directory
 
-# 3. Cấu hình layer
+# 3. Layer configuration
 layer:
   target_modules: ["q_proj", "k_proj", "v_proj", "o_proj"]
-  full_finetuning: false            # Chỉ huấn luyện một phần
+  full_finetuning: false            # Partial training only
 
-# 4. Cấu hình dataset
+# 4. Dataset configuration
 dataset:
-  dataset_name: "ChaosAiVision/medical_1k_json"  # Tên dataset
-  test_size: 0.1                                  # Tỷ lệ test
-  text_field: "text"                              # Trường chứa text
+  dataset_name: "ChaosAiVision/medical_1k_json"  # Dataset name
+  test_size: 0.1                                  # Test ratio
+  text_field: "text"                              # Text field
 
-# 5. Cấu hình LoRA (tùy chọn)
+# 5. LoRA configuration (optional)
 lora:
-  r: 8                              # Rank của LoRA
+  r: 8                              # LoRA rank
   lora_alpha: 32                    # Alpha parameter
   lora_dropout: 0.1                 # Dropout rate
 ```
 
-### Các file cấu hình có sẵn
+### Available configuration files
 
-| File | Mô tả | Loại mô hình |
-|------|-------|--------------|
-| `config/unsloth/llm/sft.yaml` | Huấn luyện LLM với Unsloth | LLM |
-| `config/unsloth/vlm/sft.yaml` | Huấn luyện VLM với Unsloth | VLM |
+| File | Description | Model type |
+|------|-------------|------------|
+| `config/unsloth/llm/sft.yaml` | Train LLM with Unsloth | LLM |
+| `config/unsloth/vlm/sft.yaml` | Train VLM with Unsloth | VLM |
 
-### Tham số quan trọng
+### Important parameters
 
-#### Tối ưu bộ nhớ
-- `load_in_4bit: true` - Giảm 75% bộ nhớ
-- `per_device_train_batch_size: 1` - Batch size nhỏ
-- `gradient_accumulation_steps: 4` - Tích lũy gradient
+#### Memory optimization
+- `load_in_4bit: true` - Reduces memory by 75%
+- `per_device_train_batch_size: 1` - Small batch size
+- `gradient_accumulation_steps: 4` - Accumulate gradients
 
-#### Tối ưu tốc độ
-- `packing: true` - Đóng gói sequences (nhanh hơn 5x)
-- `bf16: true` - Sử dụng bfloat16
-- `dataloader_num_workers: 2` - Đa luồng load data
-
----
-
-## 🛠️ Cấu trúc dự án
-
-```
-TrainForge/
-├── src/forge/              # Mã nguồn chính
-│   ├── core/              # Cấu hình cốt lõi
-│   ├── module/            # Các backend (unsloth, huggingface)
-│   ├── utils/             # Tiện ích
-│   └── trainers.py        # Factory pattern
-├── config/                # File cấu hình
-│   ├── unsloth/          # Cấu hình Unsloth
-│   └── huggingface/      # Cấu hình HuggingFace
-├── examples/              # Ví dụ sử dụng
-├── requirements.txt       # Dependencies
-└── train.py              # Script huấn luyện chính
-```
+#### Speed optimization
+- `packing: true` - Pack sequences (5x faster)
+- `bf16: true` - Use bfloat16
+- `dataloader_num_workers: 2` - Multi-threaded data loading
 
 ---
 
-## 🚨 Xử lý lỗi thường gặp
-
-### Lỗi: "No module named 'forge'"
-```bash
-# Giải pháp: Thêm src vào PYTHONPATH
-export PYTHONPATH=$PYTHONPATH:./src
-# Hoặc
-PYTHONPATH=$PYTHONPATH:./src python your_script.py
-```
-
-### Lỗi: "CUDA out of memory"
-```yaml
-# Giải pháp: Giảm batch size trong config
-hyperparams:
-  per_device_train_batch_size: 1  # Giảm từ 2 xuống 1
-  gradient_accumulation_steps: 8  # Tăng để bù batch size
-```
-
-### Lỗi: "SFTTrainer unexpected keyword argument"
-```python
-# Đã được sửa trong phiên bản mới
-# Nếu vẫn gặp lỗi, hãy cập nhật dependencies:
-pip install --upgrade transformers trl
-```
-
-### Lỗi: Dataset không tìm thấy
-```yaml
-# Thay đổi dataset trong config
-dataset:
-  dataset_name: "your-dataset-name"  # Thay bằng dataset có sẵn
-  # Hoặc sử dụng dataset local
-  dataset_path: "path/to/your/data.json"
-```
-
----
-
-## 📊 Hiệu suất
-
-### Benchmark trên các GPU phổ biến
-
-| Mô hình | GPU | Thời gian huấn luyện | Bộ nhớ sử dụng |
-|---------|-----|---------------------|----------------|
-| Llama-3.2-3B | RTX 3090 (24GB) | 2h 30m | 12GB |
-| Llama-3.2-3B | RTX 4090 (24GB) | 1h 45m | 10GB |
-| Qwen2-VL-7B | 2x RTX 4090 | 6h 15m | 40GB |
-
-### Mẹo tối ưu
-
-1. **Sử dụng 4-bit quantization** - Tiết kiệm 75% bộ nhớ
-2. **Bật packing** - Nhanh hơn 5x với sequences ngắn
-3. **Điều chỉnh batch size** - Tùy theo bộ nhớ GPU
-4. **Sử dụng đa GPU** - Cho mô hình lớn
-
----
-
-## 🤝 Hỗ trợ
-
-### Cần giúp đỡ?
-- 🐛 **Báo lỗi**: [GitHub Issues](https://github.com/yourusername/TrainForge/issues)
-- 💬 **Thảo luận**: [GitHub Discussions](https://github.com/yourusername/TrainForge/discussions)
-- 📧 **Email**: support@trainforge.dev
-
-### Câu hỏi thường gặp
-
-**Q: Tôi có GPU 8GB, có thể huấn luyện được không?**
-A: Có! Sử dụng `load_in_4bit: true` và `per_device_train_batch_size: 1`
-
-**Q: Làm sao để huấn luyện với dataset của tôi?**
-A: Thay đổi `dataset_name` trong file config hoặc sử dụng `dataset_path`
-
-**Q: Tại sao huấn luyện chậm?**
-A: Thử bật `packing: true` và tăng `per_device_train_batch_size`
-
----
-
-## 📄 Giấy phép
-
-Dự án này được cấp phép theo MIT License - xem file [LICENSE](LICENSE) để biết chi tiết.
-
----
-
-## 🙏 Lời cảm ơn
-
-- [Unsloth](https://github.com/unslothai/unsloth) - Tối ưu hóa huấn luyện
-- [HuggingFace](https://huggingface.co/) - Transformers và datasets
-- [Weights & Biases](https://wandb.ai/) - Theo dõi thí nghiệm
-
----
-
-<div align="center">
-
-**Được tạo với ❤️ bởi TrainForge Team**
-
-[⭐ Star repo này](https://github.com/yourusername/TrainForge) • [🐛 Báo lỗi](https://github.com/yourusername/TrainForge/issues) • [📖 Tài liệu](https://docs.trainforge.dev)
-
-**Chúc bạn huấn luyện AI thành công! 🚀**
-
-</div>
+## 🛠️ Project Structure
