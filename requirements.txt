@@ -1,0 +1,6 @@
+wandb 
+transformers
+trl 
+unsloth
+vllm
+torch

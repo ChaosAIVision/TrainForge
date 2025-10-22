@@ -1,0 +1,57 @@
+model:
+  model_name_or_path: "unsloth/Llama-3.2-3B-Instruct"
+  max_seq_length: 4096
+  dtype: null
+  load_in_4bit: true
+  load_in_8bit: false
+  trust_remote_code: false
+  device_map: null
+
+hyperparams:
+  per_device_train_batch_size: 1
+  per_device_eval_batch_size: 1
+  gradient_accumulation_steps: 4
+  warmup_steps: 100
+  num_train_epochs: 3
+
+  learning_rate: 0.0001
+  weight_decay: 0.0
+  lr_scheduler_type: "cosine"
+  warmup_ratio: 0.05
+  logging_steps: 10
+  save_steps: 100
+  eval_steps: 100
+  save_total_limit: 3
+  metric_for_best_model: "eval_loss"
+  optim: "adamw_8bit"
+  seed: 3407
+  fp16: false
+  bf16: true
+  dataloader_num_workers: 2
+  remove_unused_columns: false
+  report_to: "wandb"
+  output_dir: "output_unsloth_llm_sft"
+
+layer:
+  target_modules: ["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"]
+  full_finetuning: false
+
+dataset:
+  dataset_name: "ChaosAiVision/VI_CoT-RAG"
+  dataset_split: "train"
+  test_size: 0.1
+  shuffle: true
+  seed: 42
+  text_field: "text"
+  dataset_num_proc: 2
+  packing: false
+
+lora:
+  r: 8
+  lora_alpha: 32
+  lora_dropout: 0.1
+  bias: "none"
+  use_gradient_checkpointing: "unsloth"
+  random_state: 3407
+  use_rslora: false
+  loftq_config: null
