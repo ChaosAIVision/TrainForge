@@ -4,3 +4,5 @@ trl
 unsloth
 vllm
 torch
+huggingface-cli
+datasets

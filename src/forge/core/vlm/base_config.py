@@ -38,6 +38,7 @@ class HyperParamsConfig:
     remove_unused_columns: bool = False
     report_to: str = "wandb"
     output_dir: str = "output"
+    ddp_find_unused_parameters: bool = False
 
 @dataclass
 class LayerConfig:

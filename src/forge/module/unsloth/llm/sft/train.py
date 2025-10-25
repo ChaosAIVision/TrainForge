@@ -6,6 +6,7 @@ from transformers.modeling_utils import PreTrainedModel
 from transformers.tokenization_utils import PreTrainedTokenizer
 from trl import SFTTrainer
 from accelerate import Accelerator
+import os
 
 from forge.core.llm.base_config import ModelConfig, HyperParamsConfig, LayerConfig, LoraConfig, DatasetConfig
 from forge.core.llm.loader import BaseModelLoader, LoaderFactory
@@ -56,10 +57,10 @@ class UnslothLLMSFTTrainer:
     def setup_model(self):
         """Load and setup model and tokenizer."""
         model_loader = UnslothModelLoader()
-        self.model, self.tokenizer = model_loader.load_model_and_tokenizer(self.model_config)
-        
+        # Ensure device_map is set per-process BEFORE loading the model
         if self.model_config.device_map is None:
             self.model_config.device_map = self.accelerator.device
+        self.model, self.tokenizer = model_loader.load_model_and_tokenizer(self.model_config)
         
         if self.lora_config is not None:
             self.model = FastLanguageModel.get_peft_model(
@@ -83,10 +84,17 @@ class UnslothLLMSFTTrainer:
         self.eval_dataset = self.eval_dataset.map(self.formatting_prompts_func, batched=True)
     
 
+    # def formatting_prompts_func(self, examples):
+    #     convos = examples["messages"]
+    #     texts = [self.tokenizer.apply_chat_template(convo, tokenize = False, add_generation_prompt = False) for convo in convos]
+    #     return { "text" : texts }
+
+
     def formatting_prompts_func(self, examples):
-        convos = examples["messages"]
-        texts = [self.tokenizer.apply_chat_template(convo, tokenize = False, add_generation_prompt = False) for convo in convos]
-        return { "text" : texts }
+        conversations = examples['messages']
+        conversations = self.tokenizer.apply_chat_template(conversations, tokenize = False, add_generation_prompt = False, batched = True)
+        conversations = [convo + self.tokenizer.eos_token for convo in conversations] 
+        return { "text" : conversations }
 
     def setup_trainer(self):
         """Setup SFT trainer with configurations."""
@@ -115,7 +123,8 @@ class UnslothLLMSFTTrainer:
             report_to=self.hyperparams_config.report_to,
             save_strategy="steps",
             eval_strategy="steps" if self.eval_dataset else "no",
-            logging_strategy="steps"
+            logging_strategy="steps",
+            ddp_find_unused_parameters=False,
         )
         
         self.trainer = SFTTrainer(
@@ -132,6 +141,10 @@ class UnslothLLMSFTTrainer:
     
     def train(self) -> Dict[str, Any]:
         """Execute training pipeline."""
+        # Log accelerator setup similar to examples/train.py
+        rank_idx = self.accelerator.process_index
+        print(f"[PID {os.getpid()}, Rank {rank_idx}] Accelerator initialized. Distributed: {self.accelerator.distributed_type}, Device: {self.accelerator.device}, Num_processes: {self.accelerator.num_processes}", flush=True)
+
         self.setup_model()
         self.setup_dataset() 
         self.setup_trainer()

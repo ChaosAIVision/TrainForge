@@ -9,6 +9,7 @@ from trl import SFTTrainer, SFTConfig
 from unsloth.trainer import UnslothVisionDataCollator
 from unsloth import FastVisionModel, is_bfloat16_supported, unsloth_train
 from accelerate import Accelerator
+import os
 
 from forge.core.vlm.base_config import ModelConfig, HyperParamsConfig, LayerConfig, LoraConfig, DatasetConfig
 from forge.core.vlm.loader import BaseModelLoader, LoaderFactory
@@ -58,10 +59,10 @@ class UnslothVLMSFTTrainer:
     def setup_model(self):
         """Load and setup VLM model and tokenizer."""
         model_loader = UnslothVLMModelLoader()
-        self.model, self.tokenizer = model_loader.load_model_and_tokenizer(self.model_config)
-        
+        # Ensure device_map is set per-process BEFORE loading the model
         if self.model_config.device_map is None:
             self.model_config.device_map = self.accelerator.device
+        self.model, self.tokenizer = model_loader.load_model_and_tokenizer(self.model_config)
         
         if self.lora_config is not None:
             self.model = FastVisionModel.get_peft_model(
@@ -154,6 +155,7 @@ class UnslothVLMSFTTrainer:
             save_strategy="steps",
             eval_strategy="steps" if self.eval_dataset else "no",
             logging_strategy="steps",
+            ddp_find_unused_parameters=False,
             dataset_text_field = "",
             dataset_kwargs = {"skip_prepare_dataset": True},
             max_length = 4096,
@@ -173,6 +175,10 @@ class UnslothVLMSFTTrainer:
     
     def train(self) -> Dict[str, Any]:
         """Execute VLM training pipeline."""
+        # Log accelerator setup similar to LLM
+        rank_idx = self.accelerator.process_index
+        print(f"[PID {os.getpid()}, Rank {rank_idx}] Accelerator initialized. Distributed: {self.accelerator.distributed_type}, Device: {self.accelerator.device}, Num_processes: {self.accelerator.num_processes}", flush=True)
+
         self.setup_model()
         self.setup_dataset() 
         self.setup_trainer()

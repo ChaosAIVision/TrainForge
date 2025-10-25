@@ -1,7 +1,7 @@
 """
 Simple example for Unsloth VLM SFT Training using TrainForge framework.
 """
-
+import unsloth
 from forge import UnslothVLMTrainer
 
 
