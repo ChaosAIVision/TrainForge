@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "trainforge"
+version = "0.1.0"
+description = "Easy-to-use framework for training LLMs and VLMs with Unsloth"
+readme = "README.md"
+requires-python = ">=3.10,<3.12"
+license = {text = "GPL-3.0 OR COMMERCIAL"}
+authors = [
+    {name = "ChaosAIVision", url = "https://github.com/ChaosAIVision"}
+]
+keywords = ["llm", "vlm", "fine-tuning", "unsloth", "training"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "License :: Other/Proprietary License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+[project.urls]
+Homepage = "https://github.com/ChaosAIVision/TrainForge"
+Repository = "https://github.com/ChaosAIVision/TrainForge"
+Documentation = "https://github.com/ChaosAIVision/TrainForge"
+"Commercial License" = "https://www.linkedin.com/in/nhattruongnguyen20022003/"
+
+[tool.setuptools]
+packages = ["src.forge"]
+
+[tool.setuptools.package-data]
+"*" = ["*.yaml", "*.yml", "*.txt"]
+
