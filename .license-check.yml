@@ -1,0 +1,27 @@
+# License Check Configuration for CI/CD Tools
+# This file helps automated license scanners detect the dual license model
+
+license:
+  type: "Dual License"
+  primary: "GPL-3.0"
+  alternative: "Commercial License"
+  spdx-identifier: "GPL-3.0 OR Proprietary"
+  
+commercial-license:
+  required: true
+  required-for:
+    - "Production use"
+    - "Commercial use"
+    - "Enterprise use"
+    - "SaaS/Cloud services"
+  
+contact:
+  commercial-license: "https://www.linkedin.com/in/nhattruongnguyen20022003/"
+  github: "https://github.com/ChaosAIVision"
+  
+free-for:
+  - "Research"
+  - "Academic use"
+  - "Non-commercial use"
+  - "Open source projects (GPL-3.0 compliant)"
+

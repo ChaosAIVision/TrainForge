@@ -1,0 +1,8 @@
+wandb 
+transformers
+trl 
+unsloth
+vllm
+torch
+huggingface-cli
+datasets

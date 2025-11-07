@@ -1,7 +1,70 @@
+                    DUAL LICENSE
+
+This software is available under two licenses:
+
+1. GNU GENERAL PUBLIC LICENSE v3.0 (GPL-3.0)
+   - For research, academic, and non-commercial use
+   - Free of charge
+   - See terms below
+
+2. COMMERCIAL LICENSE (REQUIRED FOR PRODUCTION/COMMERCIAL USE)
+   - For production, commercial, and enterprise use
+   - REQUIRES A PAID LICENSE
+   - Contact: https://www.linkedin.com/in/nhattruongnguyen20022003/
+   - Or visit: https://github.com/ChaosAIVision
+
+================================================================================
+COMMERCIAL LICENSE TERMS
+================================================================================
+
+A commercial license is REQUIRED for:
+
+  - Production use: Any use in a production environment
+  - Commercial use: Any use for commercial purposes, including:
+    * Selling products or services that use this software
+    * Using this software in commercial applications
+    * Providing services based on this software
+  - Enterprise use: Any enterprise or business use
+  - SaaS/Cloud services: Using this software in Software-as-a-Service offerings
+
+Commercial License Benefits:
+  - No copyleft requirements: You are not required to open-source your modifications
+  - Proprietary use: You can use this software in proprietary applications
+  - Commercial support: Priority technical support and assistance
+  - Priority bug fixes: Faster response to bug reports and issues
+  - Feature requests: Priority consideration for feature requests
+  - Legal protection: Clear licensing terms for commercial use
+
+What is Covered by GPL-3.0 (Free):
+  - Research: Academic and scientific research
+  - Education: Educational and learning purposes
+  - Non-commercial: Personal, non-commercial projects
+  - Open Source: Projects that comply with GPL-3.0 copyleft requirements
+
+License Detection for CI/CD Tools:
+  - Primary License: GPL-3.0 (for non-commercial use)
+  - Alternative License: Commercial License (for commercial use)
+  - License Type: Dual License / Proprietary License
+  - SPDX Identifier: GPL-3.0 OR Proprietary
+  - Commercial License Required: YES (for production/commercial use)
+
+Compliance:
+  If you are using this software in a commercial or production environment,
+  you MUST purchase a commercial license. Using this software under GPL-3.0
+  in commercial contexts without a commercial license is a violation of the
+  license terms.
+
+For commercial licensing inquiries, pricing information, and to purchase
+a commercial license, please contact the copyright holder:
+  - LinkedIn: https://www.linkedin.com/in/nhattruongnguyen20022003/
+  - GitHub: https://github.com/ChaosAIVision
+
+================================================================================
+
                     GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
 
- Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
+ Copyright (C) ChaosAIVision, Inc. https://github.com/ChaosAIVision
  Everyone is permitted to copy and distribute verbatim copies
  of this license document, but changing it is not allowed.
 
@@ -63,7 +126,7 @@ States should not allow patents to restrict development and use of
 software on general-purpose computers, but in those that do, we wish to
 avoid the special danger that patents applied to a free program could
 make it effectively proprietary.  To prevent this, the GPL assures that
-patents cannot be used to render the program non-free.
+patents cannot be used to make the program non-free.
 
   The precise terms and conditions for copying, distribution and
 modification follow.
@@ -111,14 +174,14 @@ menu, a prominent item in the list meets this criterion.
 
   1. Source Code.
 
-  The "source code" for a work means the preferred form of the work
-for making modifications to it.  "Object code" means any non-source
-form of a work.
+  The "source code" for a work means the preferred form of the work for
+making modifications to it.  "Object code" means any non-source form of
+a work.
 
   A "Standard Interface" means an interface that either is an official
 standard defined by a recognized standards body, or, in the case of
-interfaces specified for a particular programming language, one that
-is widely used among developers working in that language.
+interfaces specified for a particular programming language, one that is
+widely used among developers working in that language.
 
   The "System Libraries" of an executable work include anything, other
 than the work as a whole, that (a) is included in the normal form of
@@ -223,9 +286,10 @@ terms of section 4, provided that you also meet all of these conditions:
     License to anyone who comes into possession of a copy.  This
     License will therefore apply, along with any applicable section 7
     additional terms, to the whole of the work, and all its parts,
-    regardless of how they are packaged.  This License gives no
-    permission to license the work in any other way, but it does not
-    invalidate such permission if you have separately received it.
+    regardless of how they are packaged.  This License does not
+    authorize you to choose the terms of the license of any other work
+    that may be combined with the work, but it does not invalidate
+    such permission if you have separately received it.
 
     d) If the work has interactive user interfaces, each must display
     Appropriate Legal Notices; however, if the Program has interactive
@@ -277,13 +341,13 @@ in one of these ways:
     Corresponding Source in the same way through the same place at no
     further charge.  You need not require recipients to copy the
     Corresponding Source along with the object code.  If the place to
-    copy the object code is a network server, the Corresponding Source
-    may be on a different server (operated by you or a third party)
-    that supports equivalent copying facilities, provided you maintain
-    clear directions next to the object code saying where to find the
-    Corresponding Source.  Regardless of what server hosts the
-    Corresponding Source, you remain obligated to ensure that it is
-    available for as long as needed to satisfy these requirements.
+    copy the object code is a network server, the Corresponding
+    Source may be on a different server (operated by you or a third
+    party) that supports equivalent copying facilities, provided you
+    maintain clear directions next to the object code saying where to
+    find the Corresponding Source.  Regardless of what server hosts
+    the Corresponding Source, you remain obligated to ensure that it
+    is available for as long as needed to satisfy these requirements.
 
     e) Convey the object code using peer-to-peer transmission, provided
     you inform other peers where the object code and Corresponding
@@ -329,8 +393,8 @@ been installed in ROM).
   The requirement to provide Installation Information does not include a
 requirement to continue to provide support service, warranty, or updates
 for a work that has been modified or installed by the recipient, or for
-the User Product in which it has been modified or installed.  Access to a
-network may be denied when the modification itself materially and
+the User Product in which it has been modified or installed.  Access to
+a network may be denied when the modification itself materially and
 adversely affects the operation of the network or violates the rules and
 protocols for communication across the network.
 
@@ -355,8 +419,8 @@ this License without regard to the additional permissions.
 remove any additional permissions from that copy, or from any part of
 it.  (Additional permissions may be written to require their own
 removal in certain cases when you modify the work.)  You may place
-additional permissions on material, added by you to a covered work,
-for which you have or can give appropriate copyright permission.
+additional permissions on material, added by you to a covered work, for
+which you have or can give appropriate copyright permission.
 
   Notwithstanding any other provision of this License, for material you
 add to a covered work, you may (if authorized by the copyright holders of
@@ -420,11 +484,13 @@ holder fails to notify you of the violation by some reasonable means
 prior to 60 days after the cessation.
 
   Moreover, your license from a particular copyright holder is
-reinstated permanently if the copyright holder notifies you of the
-violation by some reasonable means, this is the first time you have
-received notice of violation of this License (for any work) from that
-copyright holder, and you cure the violation prior to 30 days after
-your receipt of the notice.
+reinstated permanently if the copyright holder fails to notify you of
+the violation by some reasonable means within 60 days of your having
+received notice of violation, or within 60 days of your having
+received notice of violation of this License by any third party, or
+within 60 days of your having received notice of violation of any
+patent license, and you cure the violation prior to 30 days after your
+receipt of the notice.
 
   Termination of your rights under this section does not terminate the
 licenses of parties who have received copies or rights from you under
@@ -454,11 +520,11 @@ for enforcing compliance by third parties with this License.
 organization, or substantially all assets of one, or subdividing an
 organization, or merging organizations.  If propagation of a covered
 work results from an entity transaction, each party to that
-transaction who receives a copy of the work also receives whatever
-licenses to the work the party's predecessor in interest had or could
-give under the previous paragraph, plus a right to possession of the
-Corresponding Source of the work from the predecessor in interest, if
-the predecessor has it or can get it with reasonable efforts.
+transaction who receives a copy also receives whatever licenses to the
+work the party's predecessor in interest had or could give under the
+previous paragraph, plus a right to possession of the Corresponding
+Source of the work from the predecessor in interest, if the predecessor
+has it or can get it with reasonable efforts.
 
   You may not impose any further restrictions on the exercise of the
 rights granted or affirmed under this License.  For example, you may
@@ -513,7 +579,7 @@ country that you have reason to believe are valid.
   If, pursuant to or in connection with a single transaction or
 arrangement, you convey, or propagate by procuring conveyance of, a
 covered work, and grant a patent license to some of the parties
-receiving the covered work authorizing them to use, propagate, modify
+receiving the covered work permitting them to use, propagate, modify
 or convey a specific copy of the covered work, then the patent license
 you grant is automatically extended to all recipients of the covered
 work and works based on it.
@@ -555,10 +621,10 @@ License would be to refrain entirely from conveying the Program.
 permission to link or combine any covered work with a work licensed
 under version 3 of the GNU Affero General Public License into a single
 combined work, and to convey the resulting work.  The terms of this
-License will continue to apply to the part which is the covered work,
-but the special requirements of the GNU Affero General Public License,
-section 13, concerning interaction through a network will apply to the
-combination as such.
+License will continue to apply to the portion which is the covered
+work, but the special requirements of the GNU Affero General Public
+License, section 13, concerning interaction through a network will
+apply to the combination as such.
 
   14. Revised Versions of this License.
 
@@ -659,16 +725,11 @@ notice like this when it starts in an interactive mode:
 
 The hypothetical commands `show w' and `show c' should show the appropriate
 parts of the General Public License.  Of course, your program's commands
-might be different; for a GUI interface, you would use an "about box".
+might be different; for details on adapting to your program, see
+<https://www.gnu.org/licenses/howto.html>.
 
   You should also get your employer (if you work as a programmer) or school,
 if any, to sign a "copyright disclaimer" for the program, if necessary.
-For more information on this, and how to apply and follow the GNU GPL, see
+For more information on this and other matters related to the license, see
 <https://www.gnu.org/licenses/>.
 
-  The GNU General Public License does not permit incorporating your program
-into proprietary programs.  If your program is a subroutine library, you
-may consider it more useful to permit linking proprietary applications with
-the library.  If this is what you want to do, use the GNU Lesser General
-Public License instead of this License.  But first, please read
-<https://www.gnu.org/licenses/why-not-lgpl.html>.
