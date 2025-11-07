@@ -270,9 +270,29 @@ When `report_to: "wandb"` is set in your configuration, training metrics are aut
 - LoRA fine-tuning support
 - Weights & Biases integration
 
-### In Development
-- Reinforcement Learning (RL) training scripts: Support for RLHF, DPO, PPO, and other RL-based fine-tuning methods
-- FP4 quantization for Blackwell architecture: Optimized quantization support for NVIDIA's Blackwell GPU architecture
+### Current Plan
+
+**Phase 1: Core Training Infrastructure (Completed)**
+- Multi-GPU training scripts for LLM SFT
+- Multi-GPU training scripts for VLM SFT
+- YAML-based configuration system
+- LoRA fine-tuning support
+
+**Phase 2: Reinforcement Learning Training (In Development)**
+- Reinforcement Learning (RL) training scripts
+- Support for RLHF (Reinforcement Learning from Human Feedback)
+- Support for DPO (Direct Preference Optimization)
+- Support for PPO (Proximal Policy Optimization)
+- Support for other RL-based fine-tuning methods
+
+**Phase 3: Advanced Quantization (Planned)**
+- FP4 quantization for Blackwell architecture
+
+### Future Plans
+- Additional RL algorithms support
+- More quantization formats
+- Enhanced multi-node training support
+- Advanced monitoring and debugging tools
 
 ## Troubleshooting
 
